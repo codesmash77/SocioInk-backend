@@ -14,6 +14,7 @@ exports.getAllInks = (req,res) => {
                     commentCount : doc.data().commentCount,
                     likeCount : doc.data().likeCount,
                     userImage : doc.data().userImage,
+                    inkImage : doc.data().inkImage
                     });
             });
             return res.json(inks);
