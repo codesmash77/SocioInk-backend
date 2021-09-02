@@ -14,10 +14,13 @@ let db ={
     inks : [
         {
             userHandle : 'user',
+            inkId: 'jfjff',
             body : 'This is the Ink!',
             createdAt : '2021-08-29T10:00:59.819Z',
             likeCount : 0,
             commentCount : 0,
+            userImage: 'image.jpg', 
+            inkImage: 'image.png'
         }
     ],
     comments: [

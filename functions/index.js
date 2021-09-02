@@ -11,7 +11,7 @@ const { likeInk, unlikeInk } = require('./handlers/likes');
 const { signup } = require('./handlers/signup');
 const { login } = require('./handlers/login');
 const { FBAuth } = require('./util/fbauth');
-const { uploadImage } = require('./util/uploadimage');
+const { uploadImage,uploadInkImage } = require('./util/uploadimage');
 const { addUserDetails,getUserDetails  } = require('./handlers/userdetails');
 const { getAuthenticatedUser } = require('./handlers/getauthenticateduser');
 const { markNotificationsRead } = require('./handlers/notifications');
@@ -33,7 +33,7 @@ app.post('/notifications', FBAuth, markNotificationsRead);
 
 //Ink Routes 
 app.get('/Inks', getAllInks);
-app.post('/Ink',FBAuth, postOneInk);
+app.post('/Ink',FBAuth, postOneInk, uploadInkImage);
 app.get('/Ink/:inkId',getInk);
 app.delete('/Ink/:inkId',FBAuth,deleteInk);
 

@@ -13,7 +13,7 @@ exports.getAllInks = (req,res) => {
                     createdAt : doc.data().createdAt,
                     commentCount : doc.data().commentCount,
                     likeCount : doc.data().likeCount,
-                    userImage : doc.data().userImage
+                    userImage : doc.data().userImage,
                     });
             });
             return res.json(inks);
@@ -21,7 +21,7 @@ exports.getAllInks = (req,res) => {
         .catch(err => console.error(err));
 };
 
-exports.postOneInk = (req, res) => {
+exports.postOneInk = (req, res,next) => {
     if(req.body.body.trim()===''){
         return res.status(400).json({ body : 'Body must not be empty!'});
     }
@@ -39,6 +39,7 @@ exports.postOneInk = (req, res) => {
         const resInk = newInk;
         resInk.inkId = doc.id;
         res.json(resInk);
+        return next();
     })
     .catch((err) => {
         res.status(500).json({ error: 'something went wrong!'});
